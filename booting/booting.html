@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href = "style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content ="width=device-width", initial-scale = "1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>typing-code</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+            * {
+            margin: 0;
+            padding: 0;
+            }
+            body {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #000000;
+            color: #eeeeee;
+            padding-top: 2%;
+            }
+            .container {
+            text-align: left;
+            }
+            .container p {
+            margin-left: 20%;
+            margin-right: 20%;
+            font-size: 1.25rem;
+            font-weight: bold;
+            }
+            .end-button {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: red;
+            margin-top: 2.5%;
+            margin-left: 23%;
+            margin-right: 23%;
+            background-color: transparent;
+            border: 0px;
+            animation: blink-button 2s infinite;
+            }
+            .typed-text {
+            font-weight: bold;
+            color: red;
+
+            }
+            .typed-color-text{
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background-color:darkred;
+            }
+            .cursor {
+                display: inline-block;
+                width: 14.5px;
+                background-color: #ccc;
+                margin-left: 00.2rem;
+                animation: blink 1s infinite;
+            }
+            .cursor.typing{
+            animation: none;
+            }
+            .cursor.non-visible{
+            visibility: hidden;
+            }
+            @keyframes blink {
+                0% {background-color: #ccc;}
+                50% {background-color: transparent;}
+                100% {background-color: #ccc;}
+            }
+            @keyframes blink-button{
+            0% {color: darkred;}
+            50% {color: red;}
+            100% {color: darkred;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+            <p><span id="text"></span> -> <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+        </div>
+        <button class="end-button" type="button", id="end" style="float: right; visibility: hidden;" onclick="window.open('https://www.aleksandrmolchagin.com/');">CLICK HERE TO CONTINUE</button>
+        <script>
+            const mainText = document.getElementById("text");
+            const typedTextSpan = document.querySelector(".typed-text");
+            const cursorSpan = document.querySelector(".cursor");
+            //const textArray = ["IS STARTING"];
+            const typingDelay = 50;
+            //const erasingDelay = 50;
+            const newTextDelay = 2500;
+            //let textArrayIndex = 0;
+            let parArrayTextIndex = 0;
+            let charIndex = 0;
+            let parInd = 0;
+            let parNum = 0;
+            //arrays for paragraphs
+            const parArrayText = ["ALEKSANDRMOLCHAGIN.COM", "PERSONAL WEBSITE","//"];
+            const parArrayText2 = ["CONNECTION HAS BEEN ESTABLISHED"];
+            const parArrayText3 = ["GETTING PERMISSION TO ACCESS THE WEBSITE"];
+            const parArrayText4 = ["YOUR PERMISSION IS GRANTED", "THE CODE IS ACTIVATED", "//"];
+            const parArrayText5 = ["54 68 65 72 65 20 69 73 20 6E 6F 20 65 6D 6F 74 69 6F 6E 2C 20 74 68 65 72 65 20 69 73 20 70 65 61 63 65 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 69 67 6E 6F 72 61 6E 63 65 2C 20 74 68 65 72 65 20 69 73 20 6B 6E 6F 77 6C 65 64 67 65 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 70 61 73 73 69 6F 6E 2C 20 74 68 65 72 65 20 69 73 20 73 65 72 65 6E 69 74 79 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 63 68 61 6F 73 2C 20 74 68 65 72 65 20 69 73 20 68 61 72 6D 6F 6E 79 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 64 65 61 74 68 2C 20 74 68 65 72 65 20 69 73 20 74 68 65 20 46 6F 72 63 65 2E"];
+            let parArray = [];
+            //puting elements
+            parArrayText.forEach(putArray);
+            //creating an array of paragraphs
+            function putArray(item, index, arr){
+                var para = document.createElement("p");
+                if (item == "CONNECTION HAS BEEN ESTABLISHED")
+                    para.setAttribute("class", "typed-color-text");
+                else
+                    para.setAttribute("class", "typed-text");
+                var node = document.createTextNode("");
+                para.appendChild(node);
+                var element = document.querySelector("div");
+                element.appendChild(para);
+                parArray.push(para)
+            }
+            //add an empty line
+            function addGap(){
+                document.querySelector("div").appendChild(document.createElement("br"));
+            }
+            function typePar() {
+                if (parNum == 0)
+                {
+                    if(charIndex < parArrayText[parArrayTextIndex].length)
+                    {
+                    if(!cursorSpan.classList.contains("non-visible")) cursorSpan.classList.add("non-visible");
+                        parArray[parInd].textContent += parArrayText[parArrayTextIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typePar, typingDelay);
+                    }
+                    else if (parInd < parArrayText.length-1) {
+                        if(cursorSpan.classList.contains("non-visible")) cursorSpan.classList.remove("non-visible");
+                        charIndex = 0;
+                        parInd++;
+                        parArrayTextIndex++;
+                        setTimeout(typePar, typingDelay)
+                    }
+                    else
+                    {
+                        if(cursorSpan.classList.contains("non-visible")) cursorSpan.classList.remove("non-visible")
+                        parArray[parInd].appendChild(cursorSpan);
+                        charIndex = 0;
+                        parArrayTextIndex = 0;
+                        parNum = 1;
+                        parInd++;
+                        addGap()
+                        addGap();
+                        parArrayText2.forEach(putArray);
+                        setTimeout(typePar, newTextDelay)
+                    }
+                }
+                else if (parNum == 1)
+                {
+                    if(charIndex < parArrayText2[parArrayTextIndex].length)
+                    {
+                        if(!cursorSpan.classList.contains("non-visible")) cursorSpan.classList.add("non-visible");
+                        parArray[parInd].textContent += parArrayText2[parArrayTextIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typePar,25);
+                    }
+                    else
+                    {
+                        addGap()
+                        addGap();
+                        charIndex = 0;
+                        parArrayTextIndex = 0;
+                        parArrayText3.forEach(putArray);
+                        parInd++
+                        parNum = 2;
+                        setTimeout(typePar, newTextDelay);
+                    }
+                }
+                if (parNum == 2)
+                {
+                    if(charIndex < parArrayText3[parArrayTextIndex].length)
+                    {
+                        if(!cursorSpan.classList.contains("non-visible")) cursorSpan.classList.add("non-visible");
+                        parArray[parInd].textContent += parArrayText3[parArrayTextIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typePar, typingDelay);
+                    }
+                    else
+                    {
+                        if(cursorSpan.classList.contains("non-visible")) cursorSpan.classList.remove("non-visible")
+                        parArray[parInd].appendChild(cursorSpan);
+                        charIndex = 0;
+                        parArrayTextIndex = 0;
+                        parNum = 3;
+                        parInd++;
+                        addGap();
+                        parArrayText4.forEach(putArray);
+                        setTimeout(typePar, 3000);
+                    }
+                }
+                if (parNum == 3)
+                    {
+                        if(charIndex < parArrayText4[parArrayTextIndex].length)
+                        {
+                            if(!cursorSpan.classList.contains("non-visible")) cursorSpan.classList.add("non-visible");
+                            parArray[parInd].textContent += parArrayText4[parArrayTextIndex].charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typePar, 50);
+                        }
+                        else if (parInd < parArray.length-1) {
+                            if(cursorSpan.classList.contains("non-visible")) cursorSpan.classList.remove("non-visible");
+                            charIndex = 0;
+                            parInd++;
+                            parArrayTextIndex++;
+                            addGap();
+                            setTimeout(typePar, 50)
+                        }
+                        else
+                        {
+                            if(cursorSpan.classList.contains("non-visible")) cursorSpan.classList.remove("non-visible")
+                            parArray[parInd].appendChild(cursorSpan);
+                            charIndex = 0;
+                            parArrayTextIndex = 0;
+                            parNum = 4;
+                            parInd++;
+                            parArrayText5.forEach(putArray);
+                            setTimeout(typePar, 3000);
+                        }
+                }
+                if (parNum == 4)
+                {
+                    if(charIndex < parArrayText5[parArrayTextIndex].length)
+                    {
+                        if(!cursorSpan.classList.contains("non-visible")) cursorSpan.classList.add("non-visible");
+                        parArray[parInd].textContent += parArrayText5[parArrayTextIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typePar, 4);
+                    }
+                    else {
+                        document.getElementById('end').style.visibility = "visible";
+                    }
+                }
+            }
+            function text(url) {
+                return fetch(url).then(res => res.text());
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                text('https://www.cloudflare.com/cdn-cgi/trace').then(data => {
+                let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
+                let ip = data.match(ipRegex)[0];
+                mainText.textContent = ip;
+                });
+                setTimeout(typePar, newTextDelay + 1500)
+            })
+        </script>
+    </body>
+</html>
