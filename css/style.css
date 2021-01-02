@@ -4,6 +4,10 @@
     padding: 0;
 }
 body {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/old Edge */
+    user-select: none; /* Standard */
     font-family: 'Source Code Pro', monospace;
     background-color: #000000;
     color: #eeeeee;
@@ -12,6 +16,7 @@ body {
     background-size: 0.25rem 0.25rem;
     background-position: -0.1rem -0.1rem;
 }
+
     .container p {
     margin-left: 20%;
     margin-right: 20%;
@@ -59,7 +64,7 @@ body {
     50% {background-color: transparent;}
     100% {background-color: #ccc;}
 }
-    @keyframes blink-button{
+@keyframes blink-button{
     0% {color: darkred;}
     50% {color: red;}
     100% {color: darkred;}
