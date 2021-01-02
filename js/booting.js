@@ -102,7 +102,11 @@ function typePar() {
             document.getElementById("end").setAttribute("style", "font-size: 0.7rem; float: right; visibility: visible; margin-left: 10%; margin-right: 10%");
         }
         else 
+        {
             document.getElementById("end").setAttribute("style", "float: right; visibility: visible");
+            document.getElementById("tab-booting").setAttribute("style", "visibility: visible");
+            document.getElementById("tab-booting").setAttribute("style", "animation: fadeout 1.5s");
+        }
     }
 }
 //create an html paragraph for each line 
