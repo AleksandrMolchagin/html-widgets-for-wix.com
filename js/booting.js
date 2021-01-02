@@ -33,8 +33,7 @@ var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
                 fetch('https://www.cloudflare.com/cdn-cgi/trace').then(res => res.text()).then(data => {
                 let ipRegex = /[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/
                 let ip = data.match(ipRegex)[0];
-                if (ip != null)
-                    mainText.textContent = ip;
+                mainText.textContent = ip;
                 });
                 //create an html paragraph for the first text paragraph
                 parArrayText.forEach(createPar);
