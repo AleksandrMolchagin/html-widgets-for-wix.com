@@ -77,6 +77,12 @@ body {
 .cursor.non-visible{
     visibility: hidden;
 }
+.end-button:hover {
+    cursor: pointer;
+  }
+.tab:hover {
+    cursor: pointer;
+}
 @keyframes blink {
     0% {background-color: #ccc;}
     50% {background-color: transparent;}
