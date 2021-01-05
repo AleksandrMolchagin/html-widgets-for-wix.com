@@ -12,11 +12,11 @@ let arrayNum = 0;
 //a variable to put a Character into specific html paragraph
 let lineInd = 0;
 //arrays for paragraphs 
-const parArrayText = ["ALEKSANDRMOLCHAGIN.COM", "PERSONAL WEBSITE","//"];
-const parArrayText2 = ["CONNECTION HAS BEEN ESTABLISHED"];
-const parArrayText3 = ["GETTING PERMISSION TO ACCESS THE WEBSITE"];
-const parArrayText4 = ["YOUR PERMISSION IS GRANTED", "THE CODE IS ACTIVATED", "//"];
-const parArrayText5 = ["54 68 65 72 65 20 69 73 20 6E 6F 20 65 6D 6F 74 69 6F 6E 2C 20 74 68 65 72 65 20 69 73 20 70 65 61 63 65 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 69 67 6E 6F 72 61 6E 63 65 2C 20 74 68 65 72 65 20 69 73 20 6B 6E 6F 77 6C 65 64 67 65 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 70 61 73 73 69 6F 6E 2C 20 74 68 65 72 65 20 69 73 20 73 65 72 65 6E 69 74 79 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 63 68 61 6F 73 2C 20 74 68 65 72 65 20 69 73 20 68 61 72 6D 6F 6E 79 2E 0D 0A 54 68 65 72 65 20 69 73 20 6E 6F 20 64 65 61 74 68 2C 20 74 68 65 72 65 20 69 73 20 74 68 65 20 46 6F 72 63 65 2E"];
+const parArrayText = ["This is the test of", "THE TERMINAL PAGE","//"];
+const parArrayText2 = ["CONNECTION WAS ESTABLISHED ON THE BOOTING PAGE"];
+const parArrayText3 = ["Which permission do yo need?"];
+const parArrayText4 = ["Alright.", "You can access the terminal", "//"];
+const parArrayText5 = ["terminal.exe"];
 //an array for all text paragraphs (arrays, not strings)
 let arrayOfArrays = [parArrayText, parArrayText2, parArrayText3, parArrayText4, parArrayText5]  
 //an array for html paragraphs (<p></p>)
