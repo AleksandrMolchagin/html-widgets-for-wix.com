@@ -1,4 +1,4 @@
-const swup = new Swup()
+const swup = new Swup();
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const mainText = document.getElementById("text");
 const redHighlightedTextSpan = document.querySelector(".typed-text");
