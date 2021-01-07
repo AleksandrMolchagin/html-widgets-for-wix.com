@@ -1,4 +1,6 @@
-const swup = new Swup();
+const swup = new Swup({
+    plugins: [new SwupGiaPlugin()]
+  });
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 const mainText = document.getElementById("text");
 const redHighlightedTextSpan = document.querySelector(".typed-text");
