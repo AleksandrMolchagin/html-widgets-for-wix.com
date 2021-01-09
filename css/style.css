@@ -83,13 +83,6 @@ body {
 .tab:hover {
     cursor: pointer;
 }
-.transition-animation{
-    opacity: 1;
-    transition: 500ms;
-}
-html.is-animating .transition-animation {
-    opacity: 0;
-}
 @keyframes blink {
     0% {background-color: #ccc;}
     50% {background-color: transparent;}
